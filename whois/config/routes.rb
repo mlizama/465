@@ -55,11 +55,6 @@ Rails.application.routes.draw do
   #   end
 
 root "home#index"
-get 'one', to: "home#show"
-get 'two', to: "home#show"
-get 'three', to: "home#show"
-get 'four', to: "home#show"
-get 'five', to: "home#show"
-get 'begin', to: "home#show"
-get 'end', to:"home#show"
+get 'query',to:'home#show'
+
 end

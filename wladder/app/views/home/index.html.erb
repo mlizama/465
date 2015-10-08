@@ -1,0 +1,37 @@
+<body bgcolor="#696969">
+<center>
+<h1>Word Ladder Game By Moises Lizama</h1>
+<br>
+<br>
+
+Your start word is:  
+
+<%= @begin %>
+
+<%= form_tag(one_path, method: "get") do  %>
+
+    <%= label_tag(:one, "Step 1: ") %>
+    <%= text_field_tag(:one) %>
+<br>
+    <%= label_tag(:two, "Step 2: ") %>
+    <%= text_field_tag(:two) %>
+<br>
+    <%= label_tag(:three, "Step 3: ") %>
+    <%= text_field_tag(:three) %>
+<br>
+    <%= label_tag(:four, "Step 4: ") %>
+    <%= text_field_tag(:four) %>
+<br>
+    <%= label_tag(:five, "Step 5: ") %>
+    <%= text_field_tag(:five) %>
+<br>
+    Your end word is: 
+    <%=@end%>
+<br>
+    <%= submit_tag("Submit") %>
+    <%= hidden_field_tag(:begin,@begin)%>
+    <%= hidden_field_tag(:end,@end)%>
+<% end %>
+
+</center>
+</body>
