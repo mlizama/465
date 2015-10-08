@@ -1,5 +1,30 @@
+<body bgcolor="#696969">
+</body>
+<center>
 <h1>Word ladder</h1>
-
+Starting word: 
 <%= @begin %>
 <br>
+
+<%@myarray.each do |x| %>
+<%if(@myarray.first == x)%>
+<%elsif(@myarray.last == x)%>
+<%else%>
+Guess
+<%=@iter%>
+: 
+<%@iter +=1%>
+<%=x%>
+<%end%>
+<br>
+<%end%>
+
+Ending word: 
 <%= @end %>
+<br>
+
+<%= @result %>
+
+<%= link_to "Try Again", root_path %>
+
+</center>

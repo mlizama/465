@@ -4,9 +4,10 @@
 <br>
 <br>
 
-Your start word is:  
-
+<font size = "5" color = "black">
+Your start word is: 
 <%= @begin %>
+</font>
 
 <%= form_tag(one_path, method: "get") do  %>
 
@@ -25,8 +26,12 @@ Your start word is:
     <%= label_tag(:five, "Step 5: ") %>
     <%= text_field_tag(:five) %>
 <br>
+
+<font size = "5" color = "black">
     Your end word is: 
     <%=@end%>
+</font>
+
 <br>
     <%= submit_tag("Submit") %>
     <%= hidden_field_tag(:begin,@begin)%>
