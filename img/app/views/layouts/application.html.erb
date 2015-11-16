@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
+<style>
+	body bgcolor{
+		#696969;}
+</style>
+
 <center>
-<body bgcolor="#696969">
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-
+<body>
 <head>
   <title>Img</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -20,7 +24,7 @@
 
 <div id="user_nav">
 <% if user_signed_in? %>
-Signed in as <%= current_user.email %>. Not you?
+Signed in as <%= current_user.name %>. Not you?
 <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
 <% else %>
 <%= link_to "Sign up", new_user_registration_path %> or
