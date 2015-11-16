@@ -78,7 +78,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
 # enable mailer so Devise can send email
-  config.action_mailer.default_url_options = { :moises465 => 'http://ec2-54-69-30-218.us-west-2.compute.amazonaws.com/ratings' }
+  config.action_mailer.default_url_options = { :host => 'http://104.236.143.95/img' }
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
   config.action_mailer.delivery_method = :smtp
