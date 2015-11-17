@@ -6,14 +6,13 @@
 </p>
 
 <p>
-  <strong>Private:</strong>
-  <%= @image.private %>
-</p>
-
-<p>
   <strong>User:</strong>
    <%= @image.user.name %><br>
   <%= image_tag @image.filename, size: "800x800", alt: @image.filename %>
+</p>
+
+<p>
+<strong>Tags:</strong>
 </p>
 <% @tags.each do |tag| %>
    <%= tag.str %> <br>

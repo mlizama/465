@@ -1,14 +1,21 @@
 <!DOCTYPE html>
+
 <html>
-<style>
-	body bgcolor{
-		#696969;}
-</style>
-
 <center>
-
+<body bgcolor="#E6E6FA">
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+
+<div id="user_nav">
+<% if user_signed_in? %>
+Signed in as <%= current_user.name %>. Not you?
+<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+<% else %>
+<%= link_to "Sign up", new_user_registration_path %> or
+<%= link_to "Sign in", new_user_session_path %>
+<% end %>
+
+
 <body>
 <head>
   <title>Img</title>
@@ -22,14 +29,6 @@
 
 </body>
 
-<div id="user_nav">
-<% if user_signed_in? %>
-Signed in as <%= current_user.name %>. Not you?
-<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-<% else %>
-<%= link_to "Sign up", new_user_registration_path %> or
-<%= link_to "Sign in", new_user_session_path %>
-<% end %>
 </div>
 </center>
 </html>
