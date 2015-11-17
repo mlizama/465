@@ -1,23 +1,35 @@
+<style>
+p.one {
+    border-style: solid;
+    border-width: 5px;
+}
+</style>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Filename:</strong>
-  <%= @image.filename %>
-</p>
+<p> 
 
-<p>
-  <strong>User:</strong>
+   <table style ="displaye: inline-block;"> 
+   <tr>
+   <%= image_tag @image.filename, size: "600x600", alt: @image.filename %>
+   </tr>   
+   <br>
+   <strong>User:</strong>
    <%= @image.user.name %><br>
-  <%= image_tag @image.filename, size: "800x800", alt: @image.filename %>
-</p>
+   
+   </table>
 
-<p>
+
+<p class="one">
 <strong>Tags:</strong>
-</p>
+<br>
 <% @tags.each do |tag| %>
    <%= tag.str %> <br>
  <%end%>
+
+</p>
 <% if user_signed_in? %>
+
 <%= link_to 'Edit', edit_image_path(@image) %> |
 <% end %>
 <%= link_to 'Back', images_path %>

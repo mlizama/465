@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 
+<style>
+p.one {
+    border-style: solid;
+    border-width: 5px;
+}
+</style>
+
 <html>
 <style>
 html,div,center{
@@ -11,6 +18,7 @@ background-color: #a6a6a6;
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
+<p class="one">
 <div id="user_nav">
 <% if user_signed_in? %>
 Signed in as <%= current_user.name %>. Not you?
@@ -19,7 +27,7 @@ Signed in as <%= current_user.name %>. Not you?
 <%= link_to "Sign up", new_user_registration_path %> or
 <%= link_to "Sign in", new_user_session_path %>
 <% end %>
-
+</p>
 
 <body>
 <head>

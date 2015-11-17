@@ -51,14 +51,17 @@
 
 	<%= link_to 'New Image', new_image_path %>
 <%else%>
-<h1>Public Images:</h1>
+<h1> Welcome To My Social Image  Website </h1>
+<h3>Public Images:</h3>
     <% @images.each do |image| %>
    <div style="float:left">
     <table>
       <tr>
         <td>
+	<% if image.private != "t" %>
         <%=link_to (image_tag root_url + "/images/" + image.filename, size: "100x100", alt: image.filename), image %>
       <br> <%= image.user.name %>
+	<%end%>
        </td>
       </tr>
      </table>
