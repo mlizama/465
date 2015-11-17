@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
-  resources :tags
-  resources :image_users
-  resources :images
-  devise_for :users
+#  resources :tags
+#  resources :image_users
+#  resources :images
+#  devise_for :users
+
+ resources :images do
+    resources :tags, :shallow => true
+    resources :image_users, :shallow => true
+  end
+
+  devise_for :user
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -57,7 +65,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  root 'home#index'
+  root 'images#index'
 
 
 end

@@ -12,8 +12,11 @@
 
 <p>
   <strong>User:</strong>
-  <%= @image.user %>
+   <%= @image.user.name %><br>
+  <%= image_tag @image.filename, size: "800x800", alt: @image.filename %>
 </p>
-
+<% @tags.each do |tag| %>
+   <%= tag.str %> <br>
+ <%end%>
 <%= link_to 'Edit', edit_image_path(@image) %> |
 <%= link_to 'Back', images_path %>

@@ -1,0 +1,6 @@
+<% Image.all.each do |image| %>
+        <% if image.private == "f" %>
+        <%=link_to (image_tag root_url + "/images/" + image.filename, size: "100x100", alt: image.filename), 
+        'image_path' %>
+        <% end %>
+<% end %>
