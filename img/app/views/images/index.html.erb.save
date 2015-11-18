@@ -1,9 +1,13 @@
+<style>
+#rcorners1 {
+    border-radius: 25px;
+    padding: 20px;  
+}
+</style>
 
 <p id="notice"><%= notice %></p>
 
 <% if user_signed_in? %>
-<%= link_to 'New Image', new_image_path %>
-<br>
 <h1>Your Images:</h1>
 	 <% @images.each do |image| %>
 		<% if current_user.name == image.user.name %>
@@ -11,10 +15,9 @@
     			<table>
       			<tr>
         		<td>
-
+			<p id="rcorners1">Rounded corners!</p>
         		<%=link_to (image_tag root_url + "/images/" + image.filename, size: "100x100", alt: image.filename), image %>
-      			
-			<br>
+      			<br>
 			<%= link_to 'Edit', edit_image_path(image) %>
 			<%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %>
       			</td>
@@ -54,7 +57,7 @@
 <br>
 <br>
 
-	
+	<%= link_to 'New Image', new_image_path %>
 <%else%>
 <h1> Welcome To My Social Image  Website </h1>
 <h3>Public Images:</h3>

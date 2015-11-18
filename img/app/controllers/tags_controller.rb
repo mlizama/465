@@ -10,6 +10,7 @@ class TagsController < ApplicationController
   # GET /tags/1
   # GET /tags/1.json
   def show
+
   end
 
   # GET /tags/new
@@ -24,17 +25,21 @@ class TagsController < ApplicationController
   # POST /tags
   # POST /tags.json
   def create
-    @tag = Tag.new(tag_params)
-
-    respond_to do |format|
+    #@tag = Tag.new(tag_params)
+ 
+    @image = set_image
+    @tag = @image.tags.new(tag_params)
+    #respond_to do |format|
       if @tag.save
-        format.html { redirect_to @tag, notice: 'Tag was successfully created.' }
-        format.json { render :show, status: :created, location: @tag }
+	redirect_to @image, notice: 'Tag was created successfully.'
+        #format.html { redirect_to @tag, notice: 'Tag was successfully created.' }
+        #format.json { render :show, status: :created, location: @tag }
       else
-        format.html { render :new }
-        format.json { render json: @tag.errors, status: :unprocessable_entity }
+	render 'new'
+        #format.html { render :new }
+        #format.json { render json: @tag.errors, status: :unprocessable_entity }
       end
-    end
+    #end
   end
 
   # PATCH/PUT /tags/1
@@ -69,6 +74,10 @@ class TagsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tag_params
-      params.require(:tag).permit(:image_id, :str)
+      params.require(:tag).permit(:str)
     end
+
+   def set_image
+	@image = Image.find(params[:image_id])	
+   end
 end

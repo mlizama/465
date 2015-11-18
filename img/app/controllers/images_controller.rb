@@ -10,7 +10,11 @@ class ImagesController < ApplicationController
   # GET /images/1
   # GET /images/1.json
   def show
-     @tags = @image.tags.all
+	
+     @image = set_image
+     @tags = @image.tags
+     @tag = Tag.new
+
   end
 
   # GET /images/new
