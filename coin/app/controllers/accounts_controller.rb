@@ -23,6 +23,18 @@ class AccountsController < ApplicationController
   # GET /accounts/1
   # GET /accounts/1.json
   def show
+
+key = "a4bpRUI0lIAiFWHL"
+        secret = "nmX8ry1OicN52o2tkgnX9GnAv0OS86o8"
+        @client = Coinbase::Wallet::Client.new(api_key: key, api_secret: secret, api_url: "https://api.sandbox.coinbase.com")
+
+        @accts = @client.primary_account
+        @test = @accts[0]
+
+        @accts.send(to: params[:address], amount: params[:amount], currency: "BTC")
+	redirect_to action: "index"
+
+
   end
 
   # GET /accounts/new
@@ -100,7 +112,7 @@ class AccountsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_account
-      @account = Account.find(params[:id])
+     # @account = Account.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,5 +1,8 @@
+<!DOCTYPE html>
+<html>
 <p id="notice"><%= notice %></p>
 
+<%if false%>
 <p>
   <strong>Name:</strong>
   <%= @account.name %>
@@ -9,6 +12,11 @@
   <strong>Account:</strong>
   <%= @account.account_id %>
 </p>
-
 <%= link_to 'Edit', edit_account_path(@account) %> |
 <%= link_to 'Back', accounts_path %>
+
+Transaction Completed!
+<%=link_to 'Back', root_url%>
+<%end%>
+</html>
+

@@ -64,6 +64,12 @@
 Create A New Wallet Account Please
 <%end%>
 
+<%= form_tag(query_path, method: "get") do %>
+	<%=text_field_tag(:address)%>
+	<%=text_field_tag(:amount)%>
+	<%= submit_tag("send coins")%>
+
+<%end%>
 <br>
 
 <br>
