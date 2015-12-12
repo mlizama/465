@@ -6,13 +6,12 @@
 
 <table border = "1" style="width:20%">
         <tr>
-                <td> price: </td>
-        </tr>
-        <tr>
-                <td> <%=@amount%> <td>
+                <td> Price BTC/USD: </td>
+                <td> <%= "$" + @amount%> </td>
+
         </tr>
 </table>
-
+<%= @address %>
 <p>Coin info coming soon!</p>
 </body>
 </html>

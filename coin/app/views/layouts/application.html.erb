@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 
+<body style="background-color:lightgrey;">
+
+
+<center>
+
 <div id="user_nav">
 <% if user_signed_in? %>
 Signed in as <%= current_user.email %>. Not you?
@@ -25,4 +30,5 @@ Signed in as <%= current_user.email %>. Not you?
 <%= yield %>
 
 </body>
+</center>
 </html>
