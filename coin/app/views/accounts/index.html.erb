@@ -15,6 +15,7 @@
     <tr>
       <th>Wallet Name</th>
       <th>Balance BTC</th>
+     <th>Wallet address</th>
       <th>Last Three Transactions</th>
       <th>Destroy</th>
    
@@ -30,6 +31,11 @@
 	
 	
 	<%trans = (@client.account(account.account_id).transactions)%>
+
+	<td> <%address = @client.account(account.account_id)%>
+		<%= address.addresses[0]['address']%>
+	  </td>
+
 	<td>
 
 	<%trans.each do |tr|%>
@@ -64,11 +70,12 @@
 Create A New Wallet Account Please
 <%end%>
 
+<table>
 <%= form_tag(query_path, method: "get") do %>
-	<%=text_field_tag(:address)%>
-	<%=text_field_tag(:amount)%>
-	<%= submit_tag("send coins")%>
-
+<t>Enter wallet address:	<%=text_field_tag(:address)%> <tr>
+<tr>Amount in BTC:	<%=text_field_tag(:amount)%><tr>
+<tr>	<%= submit_tag("send coins")%><tr>
+</table>
 <%end%>
 <br>
 
