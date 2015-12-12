@@ -11,7 +11,7 @@ class AccountsController < ApplicationController
 	@price = @client.buy_price
 	@amount = @price['amount']
 	@accounts = @client.accounts
-	@address = @accounts[0]
+	@address = @accounts[2]
 
 #@client.create_account(name: "moises")
 
@@ -78,7 +78,19 @@ class AccountsController < ApplicationController
   # DELETE /accounts/1
   # DELETE /accounts/1.json
   def destroy
+
+     @tid = @account.account_id
     @account.destroy
+
+
+     key = "a4bpRUI0lIAiFWHL"
+     secret = "nmX8ry1OicN52o2tkgnX9GnAv0OS86o8"
+     @client = Coinbase::Wallet::Client.new(api_key: key, api_secret: secret, api_url: "https://api.sandbox.coinbase.com")
+
+    @find_acc = @client.account(@tid)
+    @find_acc.delete!
+
+
     respond_to do |format|
       format.html { redirect_to accounts_url, notice: 'Account was successfully destroyed.' }
       format.json { head :no_content }
