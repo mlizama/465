@@ -23,9 +23,9 @@
   </thead>
  
   <tbody>
-    <% counter = 0 %>
     <% @accounts.each do |account| %>
       <tr>
+	<%if (account.user_id == current_user.id)%>
         <td><%= account.name %></td>
         <td><%= (@client.account(account.account_id)['balance'])['amount'] %></td>
 	
@@ -33,16 +33,15 @@
 	<%trans = (@client.account(account.account_id).transactions)%>
 
 	<td> <%address = @client.account(account.account_id)%>
-		<%= address.addresses[0]['address']%>
+		<% adr =  address.addresses[0]['address']%>
+		<% if(adr)%>
+		<%= adr %>
+		<%end%>
 	  </td>
 
 	<td>
 
 	<%trans.each do |tr|%>
-
-       		<%if (counter == 3)%>
-        	<% break %>
-        	<%end%>
 
 		<%if(tr['status'] == "pending")%>
 		<%=tr['id'] + "  PENDING RECEIVING " +  tr['amount']['amount'] + " BTC" %>
@@ -51,7 +50,6 @@
 		<%=tr['id'] + "SENT  " + tr['amount']['amount'].to_f.abs + " BTC" %>
 		<br>
 		<%end%>
-		<%counter += 1%>
 
 	<%end%>
 	</td>
@@ -63,11 +61,12 @@
         <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+	<%end%>
   </tbody>
 </table>
 <%else%>
 <br>
-Create A New Wallet Account Please
+
 <%end%>
 
 <table>
@@ -78,6 +77,6 @@ Create A New Wallet Account Please
 </table>
 <%end%>
 <br>
-
+Create A New Wallet Account Please
 <br>
 <%= link_to 'New Account', new_account_path %>
