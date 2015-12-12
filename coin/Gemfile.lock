@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.4.0)
     arel (6.0.3)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
@@ -50,7 +51,9 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
+    coinbase (4.0.9)
     concurrent-ruby (1.0.0)
+    cookiejar (0.3.2)
     debug_inspector (0.0.2)
     devise (3.5.2)
       bcrypt (~> 3.0)
@@ -59,10 +62,20 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    em-http-request (1.1.2)
+      addressable (>= 2.3.4)
+      cookiejar
+      em-socksify (>= 0.3)
+      eventmachine (>= 1.0.3)
+      http_parser.rb (>= 0.6.0)
+    em-socksify (0.3.1)
+      eventmachine (>= 1.0.0.beta.4)
     erubis (2.7.0)
+    eventmachine (1.0.8)
     execjs (2.6.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    http_parser.rb (0.6.0)
     i18n (0.7.0)
     jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
@@ -158,7 +171,9 @@ DEPENDENCIES
   bitcoin-ruby
   byebug
   coffee-rails (~> 4.1.0)
+  coinbase
   devise
+  em-http-request
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.2.4)
