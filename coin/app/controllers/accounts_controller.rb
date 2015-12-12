@@ -48,7 +48,7 @@ class AccountsController < ApplicationController
 	@app_id = @result['id']
 
 	@account.account_id = @app_id
-
+	@account.user_id = current_user.id
 
     respond_to do |format|
       if @account.save
