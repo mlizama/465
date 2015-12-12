@@ -11,7 +11,7 @@ class AccountsController < ApplicationController
 	@price = @client.buy_price
 	@amount = @price['amount']
 	@accounts = @client.accounts
-	@address = @accounts[2]
+	@address = @accounts[0]
 
 #@client.create_account(name: "moises")
 
