@@ -59,6 +59,8 @@ key = "a4bpRUI0lIAiFWHL"
 	@result = @client.create_account(name: @account.name)
 	@app_id = @result['id']
 
+	@result.create_address
+
 	@account.account_id = @app_id
 	@account.user_id = current_user.id
 
@@ -90,8 +92,10 @@ key = "a4bpRUI0lIAiFWHL"
   # DELETE /accounts/1
   # DELETE /accounts/1.json
   def destroy
-
-     @tid = @account.account_id
+    @account = Account.find(params[:id])
+    if(@account)
+	@tid = @account.account_id
+    end
     @account.destroy
 
 

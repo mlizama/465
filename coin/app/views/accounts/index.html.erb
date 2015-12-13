@@ -33,11 +33,15 @@
 	<%trans = (@client.account(account.account_id).transactions)%>
 
 	<td> <%address = @client.account(account.account_id)%>
-		<% adr =  address.addresses[0]['address']%>
-		<% if(adr)%>
-		<%= adr %>
+		
+		<% adr =  address.addresses%>
+                <% if(adr.count > 0)%>
+	
+		<%= (adr[0])['address']%>
+		
 		<%end%>
-	  </td>
+	  
+		</td>
 
 	<td>
 
